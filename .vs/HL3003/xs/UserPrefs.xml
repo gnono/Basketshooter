@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{F8442C5D-7134-0218-AB54-8AE743F15E35}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Effects/ImageEffects/Scripts/DepthOfField.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player.cs">
     <Files>
-      <File FileName="Assets/Standard Assets/Effects/ImageEffects/Scripts/DepthOfField.cs" Line="9" Column="1" />
-      <File FileName="Assets/Standard Assets/Effects/ImageEffects/Scripts/Tonemapping.cs" Line="42" Column="9" />
+      <File FileName="Assets/Player.cs" Line="95" Column="56" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,13 +10,10 @@
             <Node name="Assets" expanded="True">
               <Node name="Standard Assets" expanded="True">
                 <Node name="Effects" expanded="True">
-                  <Node name="ImageEffects" expanded="True">
-                    <Node name="Scripts" expanded="True">
-                      <Node name="DepthOfField.cs" selected="True" />
-                    </Node>
-                  </Node>
+                  <Node name="ImageEffects" expanded="True" />
                 </Node>
               </Node>
+              <Node name="Player.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -26,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="56d97777-03cd-4b18-857b-21a371e1242a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

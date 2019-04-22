@@ -87,4 +87,12 @@ public class Player : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Level 1"))
+        {
+            Debug.Log("Your current Level is Level 1");
+        }
+    }
 }
