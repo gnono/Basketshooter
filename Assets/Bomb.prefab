@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1805379472498189864}
   - component: {fileID: 9057685061695460002}
   - component: {fileID: 5918007684679520896}
+  - component: {fileID: 7813759193172875901}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -107,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
+  Target: {fileID: 8294931614243696615, guid: 63d240b22fe924e7aa98a971da765b9b, type: 3}
+  hitCounter: 0
   explosionForce: 1000
   explosionRadius: 10
   upModifier: 300
@@ -228,3 +231,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7813759193172875901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805379472498189865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8631a248b427a45519f9d18ed06c892e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

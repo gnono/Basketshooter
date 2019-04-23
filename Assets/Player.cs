@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject cubePrefab;
+    public GameObject rampPrefab;
     public Transform hand;
     public Camera cam;
     public float maxDist;
@@ -27,6 +28,12 @@ public class Player : MonoBehaviour
            GameObject cube = Instantiate(cubePrefab, hand.position, Quaternion.identity);
             cube.GetComponent<Rigidbody>().AddForce(cam.transform.forward*throwforce);
             }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameObject ramp = Instantiate(rampPrefab, hand.position, Quaternion.identity);
+            ramp.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
+        }
 
 
         if (Input.GetKeyDown(KeyCode.T))

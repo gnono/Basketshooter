@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Level 1
+  - Bomb
+  - Cube
   layers:
   - Default
   - TransparentFX

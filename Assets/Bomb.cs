@@ -6,6 +6,8 @@ public class Bomb : MonoBehaviour
 {
 
     public float delay;
+    public GameObject Target;
+    public int hitCounter;
     public float explosionForce;
     public float explosionRadius;
     public float upModifier;
@@ -28,19 +30,35 @@ public class Bomb : MonoBehaviour
     void explode()
     {
         Collider [] hitColliders =Physics.OverlapSphere(transform.position, explosionRadius, interactionMask);
-        foreach(Collider c in hitColliders) 
-        {
 
+        //hitCounter++;
+        foreach (Collider c in hitColliders) 
+        {
+          
             Rigidbody r = c.GetComponent<Rigidbody>();
-            r.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);        
+            r.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
+            //Debug.Log("Explosion done: " + hitCounter);
+                  
         }
 
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.GetComponent<AudioSource>().Play();
 
-        Invoke("kill", 3f);
+        Kill();
+        //Invoke("kill", 3f);
         explosion =Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        hitCounter++;
+
+        if (collision.gameObject)
+        {
+
+            Debug.Log("Contact made: " + hitCounter);
+        }
     }
 
     void Kill()
@@ -49,4 +67,5 @@ public class Bomb : MonoBehaviour
         Destroy(gameObject);
         Destroy(explosion);
     }
+
 }
