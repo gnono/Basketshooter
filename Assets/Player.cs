@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject cubePrefab;
+    public GameObject pickUpObject;
     private int hitCounter;
     public GameObject rampPrefab;
     public Transform hand;
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
                         objInHand.transform.position = hand.position;
                         objInHand.transform.parent = hand;
                         objInHand.isKinematic = true;
+                        pickUpObject.SetActive(true);
 
                     }
                 }
@@ -86,7 +88,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
 
-
+            pickUpObject.SetActive(false);
 
                 if (objInHand != null)
                 {
