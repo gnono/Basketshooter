@@ -31,41 +31,57 @@ public class Bomb : MonoBehaviour
     {
         Collider [] hitColliders =Physics.OverlapSphere(transform.position, explosionRadius, interactionMask);
 
-        //hitCounter++;
+       
         foreach (Collider c in hitColliders) 
         {
           
             Rigidbody r = c.GetComponent<Rigidbody>();
             r.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
-            //Debug.Log("Explosion done: " + hitCounter);
-                  
+            //var hit = Target.GetComponent<BoxCollider>();
+            //hitCounter++;
+
+
+            //if (hit == true)
+            //{
+            //    hitCounter++;
+            //    Debug.Log("Contact was made:" + hitCounter);
+
+            //}
+            //else
+            //{
+            //    Debug.Log("No Contact was made");
+            //}
+           //c.gameObject.GetComponent<CubePhysics>();
+
         }
+
+
 
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.GetComponent<AudioSource>().Play();
 
+        explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+
         Kill();
-        //Invoke("kill", 3f);
-        explosion =Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+       
+        //Invoke("Kill", 3f);
+
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        hitCounter++;
 
-        if (collision.gameObject)
-        {
-
-            Debug.Log("Contact made: " + hitCounter);
-        }
-    }
 
     void Kill()
     {
 
-        Destroy(gameObject);
-        Destroy(explosion);
+        //Destroy(GameObject.Find("Cube(Clone)"), 1F);
+        //Debug.Log("Cube Destroyed. Works from Bomb Script");
+        //Destroy(explosion);
+
+
+
     }
+
+   
 
 }

@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{F8442C5D-7134-0218-AB54-8AE743F15E35}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Bomb.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player.cs">
     <Files>
-      <File FileName="Assets/Player.cs" Line="39" Column="41" />
-      <File FileName="Assets/Bomb.cs" Line="42" Column="10" />
-      <File FileName="Assets/CubePhysics.cs" Line="19" Column="2" />
+      <File FileName="Assets/Player.cs" Line="123" Column="1" />
+      <File FileName="Assets/Bomb.cs" Line="44" Column="31" />
+      <File FileName="Assets/CubePhysics.cs" Line="37" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
                   <Node name="ImageEffects" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Bomb.cs" selected="True" />
+              <Node name="Player.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -24,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="463821c4-ced1-44a2-828f-709600a66041" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dd7d9bba-2c7e-42c5-ba63-3662b411a67b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

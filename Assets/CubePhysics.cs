@@ -4,16 +4,43 @@ using UnityEngine;
 
 public class CubePhysics : MonoBehaviour
 {
-    private Vector3 velocity;
+    private int hitCounter;
+    public GameObject bomb;
 
+ //void countUp() 
+
+ //{
  
+    //    if (bomb.gameObject.GetComponent<Rigidbody>())
+    //    {
+    //        hitCounter++;
+    //        Debug.Log("Hit by a bomb" + hitCounter);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Not hit by a bomb");
+    //    }
 
-    private void OnCollisionEnter(Collision collision)
+    //}
+
+
+   
+    void onCollisionEnter()
+
     {
-        if (collision.gameObject.name == "Cube(Clone)")
+        var hit = bomb.GetComponent<SphereCollider>();
+        hitCounter++;
+
+        if (hit == true)
         {
-            //velocity = new Vector3(-velocity.x, -velocity.y, -velocity.z);
-            Debug.Log("Ground touched");
+            Debug.Log("Hit by a bomb" + hitCounter);
         }
+
+        else
+        {
+            Debug.Log("Not hit by a bomb");
+        }
+
     }
+
 }
