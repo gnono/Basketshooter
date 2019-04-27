@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.Log("Bullet shot");
-                GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.identity);
+                GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.Euler(90,0,0));
                 bulletPrefab.GetComponent<Rigidbody>().AddForce(cam.transform.forward * bulletSpeed);
                 Destroy(bulletPrefab, 0.5f);
 
