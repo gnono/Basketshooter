@@ -13,11 +13,12 @@ public class Player : MonoBehaviour
     public Camera cam;
     public float maxDist;
     public float throwforce;
+    private float throwforceRamp = 2000;
     public LayerMask interactionLayer;
     private Rigidbody objInHand;
     public GameObject bombPrefab;
     public GameObject bullet;
-    private float bulletSpeed = 2000;
+    private float bulletSpeed = 3000;
 
 
     // Start is called before the first frame update
@@ -42,8 +43,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GameObject ramp = Instantiate(rampPrefab, hand.position, Quaternion.identity);
-            ramp.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
+            GameObject ramp = Instantiate(rampPrefab, hand.position, Quaternion.Euler(0,180,0));
+            ramp.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforceRamp);
 
 
         }
@@ -134,7 +135,8 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.Log("Bullet shot");
-                GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.Euler(90,0,0));
+                GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.identity);
+                //GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.Euler(90, 0, 0));
                 bulletPrefab.GetComponent<Rigidbody>().AddForce(cam.transform.forward * bulletSpeed);
                 Destroy(bulletPrefab, 0.5f);
 

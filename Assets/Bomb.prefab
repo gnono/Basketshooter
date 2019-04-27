@@ -15,13 +15,14 @@ GameObject:
   - component: {fileID: 1805379472498189864}
   - component: {fileID: 9057685061695460002}
   - component: {fileID: 5918007684679520896}
+  - component: {fileID: 5953647137851117952}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1805379472498189876
 Transform:
   m_ObjectHideFlags: 0
@@ -230,3 +231,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5953647137851117952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805379472498189865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb069a1b985d4eab8a385781a94936a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

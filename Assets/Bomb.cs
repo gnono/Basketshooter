@@ -62,8 +62,9 @@ public class Bomb : MonoBehaviour
         gameObject.GetComponent<AudioSource>().Play();
 
         explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+       
 
-        Kill();
+        //Kill();
        
         //Invoke("Kill", 3f);
 
@@ -71,17 +72,17 @@ public class Bomb : MonoBehaviour
 
 
 
-    void Kill()
-    {
+    //void Kill()
+    //{
 
-        //Destroy(GameObject.Find("Cube(Clone)"), 1F);
-        //Debug.Log("Cube Destroyed. Works from Bomb Script");
-        //Destroy(explosion);
+    //    Destroy(gameObject);
+
+    //    Destroy(explosion);
 
 
 
-    }
+    //}
 
-   
+  
 
 }

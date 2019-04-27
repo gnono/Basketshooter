@@ -12,6 +12,7 @@ TagManager:
   - Barrier3
   - Msg1
   - Target
+  - Ramp
   layers:
   - Default
   - TransparentFX

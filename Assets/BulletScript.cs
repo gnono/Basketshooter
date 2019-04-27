@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour {
 
     AudioSource bulletAudio;
     public GameObject explosionEffectPrefab;
+    private float hitCounter;
     // Use this for initialization
     void Start () {
 
@@ -20,16 +21,25 @@ public class BulletScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Target")
+
+        if (collision.transform.tag == "Target" || collision.transform.tag ==("Ramp"))
         {
-            Destroy(collision.gameObject);
+            hitCounter++;
+            hitCounter += hitCounter;
             GameObject effect = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, 1F);
+            Destroy(effect, 0.6F);
+            Destroy(collision.gameObject);
+            Debug.Log("Points: " + hitCounter);
+
 
             bulletAudio.Play();
             gameObject.SetActive(false);
             Debug.Log("Target destroyed");
+
+
         }
+
+
     }
 
 
