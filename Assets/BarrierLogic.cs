@@ -11,21 +11,22 @@ public class BarrierLogic : MonoBehaviour
     private void Start()
     {
         bomb.SetActive(true);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.CompareTag("Barrier1"))
-        //{
-        //    Debug.Log("Contact made with the 1st Barrier");
-        //    bomb.SetActive(false);
-        //    Message1.SetActive(true);
-        //    StartCoroutine(wait(5F));
-        //    Debug.Log("Show msg for 5s");
-            
+        if(other.CompareTag("Barrier1"))
+        {
+            Debug.Log("Contact made with the 1st Barrier");
+            bomb.SetActive(false);
+            Message1.SetActive(true);
+            StartCoroutine(wait(5F));
+            Debug.Log("Show msg for 5s");
 
 
-        //}
+
+        }
 
         //if (other.CompareTag("Barrier2"))
         //{
@@ -38,6 +39,8 @@ public class BarrierLogic : MonoBehaviour
         //    Debug.Log("Contact made with the 3rd Barrier");
         //    bomb.SetActive(false);
         //}
+
+
     }
 
 
