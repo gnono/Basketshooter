@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour {
             GameObject effect = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, 0.6F);
             Destroy(collision.gameObject);
-            Debug.Log("Points: " + hitCounter);
+           
 
 
             bulletAudio.Play();
