@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+
 
 public class Endgame : MonoBehaviour
 {
@@ -23,8 +25,9 @@ public class Endgame : MonoBehaviour
         bomb.SetActive(true);
         bullets.SetActive(true);
         currentTime = Time.time;
-        NewBestTime.text = PlayerPrefs.GetFloat("NewBestTime", 0).ToString("Record: "+"00:00");
-        //Debug.Log("New Record of time" + NewBestTime);
+        NewBestTime.text = "Record: " +PlayerPrefs.GetFloat("NewBestTime", 0).ToString("F1" ) + "s";
+
+
 
     }
 
@@ -39,7 +42,7 @@ public class Endgame : MonoBehaviour
             bullets.SetActive(false);
 
             finished = true;
-            //gamefinished = true;
+
 
         }
 
@@ -50,40 +53,37 @@ public class Endgame : MonoBehaviour
     void Update()
     {
         float PlayTime = Time.time - currentTime;
-        string minutes = ((int)PlayTime / 60).ToString("00");
-        string seconds = (PlayTime % 59).ToString("f1");
-
-        if(countdownText != null && !finished)
+        
+        if (countdownText != null && !finished)
         {
-            countdownText.text = minutes + ":" + seconds;
+
+            countdownText.text = (PlayTime).ToString("F1") + "s";
+
+
         }
 
-        if(finished == false)
+        if (finished == false)
         {
 
         }
 
         else
         {
-            GameFinished();
-        }
 
-    }
+            if (PlayTime < PlayerPrefs.GetFloat("NewBestTime", float.MaxValue))
+            {
 
-    void GameFinished()
-    {
+                PlayerPrefs.SetFloat("NewBestTime", PlayTime);
+                NewBestTime.text = "Record: " + PlayTime.ToString("F1") + "s";
 
-        float t = Time.time - currentTime;
-        if (t < PlayerPrefs.GetFloat("NewBestTime", float.MaxValue))
-        {
-            PlayerPrefs.SetFloat("NewBestTime", t);
-            NewBestTime.text = t.ToString("Record: " + "00:00");
-            PlayerPrefs.Save();
+                Debug.Log("Your time: " + PlayTime);
+                PlayerPrefs.Save();
+                Debug.Log("Eureka!" + NewBestTime);
 
-            Debug.Log("Eureka!"+ NewBestTime);
+            }
 
         }
-
-
     }
+
+
 }
