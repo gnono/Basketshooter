@@ -69,22 +69,20 @@ public class Player : MonoBehaviour
                 transparent = false;
                 //  ramp.GetComponent<Renderer>().material = transparentMat;
 
-
-
-
             }
 
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            UpdateMaterial(transparent);
+           
             if (objInHand != null)
             {
+                UpdateMaterial(transparent);
                 objInHand.transform.parent = null;
                 objInHand.isKinematic = false;
                 objInHand = null;
-
+                
 
             }
 
@@ -185,7 +183,7 @@ public class Player : MonoBehaviour
 
             if (objInHand != null)
             {
-
+                UpdateMaterial(transparent);
                 objInHand.transform.parent = null;
                 objInHand.isKinematic = false;
                 objInHand.AddForce(cam.transform.forward * throwforce);
