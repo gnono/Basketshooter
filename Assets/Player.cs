@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
 {
     public GameObject cubePrefab;
     public GameObject pickUpObject;
-    private int hitCounter;
+    private int hitCounter;    
     public GameObject rampPrefab;
-    public Transform hand;
+    public Transform hand;  
     public Camera cam;
     public float maxDist;
     public float throwforce;
@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     private float bulletSpeed = 3000;
 
+    public Material opaqueMat;
+    public Material transparentMat;
+    private bool transparent;
+    private GameObject ramp;
+    public Transform objectPosition;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +33,63 @@ public class Player : MonoBehaviour
 
     }
 
+    // Change Material
+    void UpdateMaterial(bool transparent)
+    {
+
+        if (transparent)
+        {
+            ramp.GetComponent<Renderer>().material = transparentMat;
+        }
+        if (!transparent)
+        {
+            ramp.GetComponent<Renderer>().material = opaqueMat;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        //ramp
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+
+
+            if (objInHand == null)
+            {
+                ramp = Instantiate(rampPrefab, objectPosition.position, Quaternion.identity);
+                transparent = true;
+                UpdateMaterial(transparent);
+                objInHand = ramp.transform.GetComponent<Rigidbody>();
+                //objInHand.transform.position = objectPosition.position;
+                objInHand.transform.parent = objectPosition;
+                objInHand.isKinematic = true;
+                ramp.transform.localEulerAngles = Vector3.zero;
+                transparent = false;
+                //  ramp.GetComponent<Renderer>().material = transparentMat;
+
+
+
+
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            UpdateMaterial(transparent);
+            if (objInHand != null)
+            {
+                objInHand.transform.parent = null;
+                objInHand.isKinematic = false;
+                objInHand = null;
+
+
+            }
+
+
+        }
 
 
         if (Input.GetKeyDown(KeyCode.F))
