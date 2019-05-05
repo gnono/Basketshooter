@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.transform.tag == "Target" || collision.transform.tag ==("Ramp"))
+        if (collision.transform.tag == "Target")
         {
             hitCounter++;
             hitCounter += hitCounter;

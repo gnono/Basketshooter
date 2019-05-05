@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         {
             ramp.GetComponent<Renderer>().material = transparentMat;
         }
-        if (!transparent)
+        if ((ramp != null) && !transparent)
         {
             ramp.GetComponent<Renderer>().material = opaqueMat;
         }
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     {
 
         //ramp
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.R))
         {
 
 
@@ -62,50 +62,16 @@ public class Player : MonoBehaviour
                 transparent = true;
                 UpdateMaterial(transparent);
                 objInHand = ramp.transform.GetComponent<Rigidbody>();
-                //objInHand.transform.position = objectPosition.position;
+
                 objInHand.transform.parent = objectPosition;
                 objInHand.isKinematic = true;
                 ramp.transform.localEulerAngles = Vector3.zero;
                 transparent = false;
-                //  ramp.GetComponent<Renderer>().material = transparentMat;
 
             }
 
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-           
-            if (objInHand != null)
-            {
-                UpdateMaterial(transparent);
-                objInHand.transform.parent = null;
-                objInHand.isKinematic = false;
-                objInHand = null;
-                
-
-            }
-
-
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            GameObject cube = Instantiate(cubePrefab, hand.position, Quaternion.identity);
-            cube.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
-            Debug.Log("Cube created");
-
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            GameObject ramp = Instantiate(rampPrefab, hand.position, Quaternion.Euler(0,180,0));
-            ramp.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforceRamp);
-
-
-        }
 
 
         if (Input.GetKeyDown(KeyCode.T))
@@ -167,9 +133,8 @@ public class Player : MonoBehaviour
                 GameObject bomb = Instantiate(bombPrefab, hand.position, Quaternion.identity);
                 bomb.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
 
-                DestroyCubes();
-                ResetValues();
-
+                DestroyTarget();
+               
 
             }
 
@@ -194,7 +159,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Bullet shot");
                 GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.identity);
-                //GameObject bulletPrefab = Instantiate(bullet, hand.position, Quaternion.Euler(90, 0, 0));
+
                 bulletPrefab.transform.parent = hand.parent;
                 bulletPrefab.transform.localEulerAngles = Vector3.zero;
                 bulletPrefab.transform.parent = null;
@@ -209,42 +174,13 @@ public class Player : MonoBehaviour
         }
 
 
-        void DestroyCubes()
+        void DestroyTarget()
         {
             hitCounter++;
-            GameObject[] targets = GameObject.FindGameObjectsWithTag("Cube");
-
-
-            for (var i = 0; i < targets.Length; i++)
-            {
-                Destroy(targets[i], 1F);
-                Debug.Log("Cube destroyed. Works from Player script" + hitCounter);
-
-
-            }
-
+            GameObject[] targets = GameObject.FindGameObjectsWithTag("Ramp");
 
         }
 
-
-        //void DestroyTargets()
-
-        //{
-        //    GameObject target = GameObject.FindGameObjectsWithTag("Target");
-
-        //    if ()
-        //    {
-        //        Destroy(this.gameObject);
-        //        Debug.Log("Targets destroyed");
-        //    }
-        //}
-
-
-
-        void ResetValues()
-        {
-            hitCounter = 0;
-        }
 
     }
 }

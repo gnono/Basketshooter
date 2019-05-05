@@ -20,8 +20,7 @@ public class Shooting : MonoBehaviour
 
     void Fire()
     {
-        //Shoot
-        //GameObject tempBullet = Instantiate(bullet, transform.position, Quaternion.Euler(90, -90,0)) as GameObject;
+       
         GameObject tempBullet = Instantiate(bullet, transform.position, Quaternion.identity);
         Rigidbody tempRigidBodyBullet = tempBullet.GetComponent<Rigidbody>();
         tempRigidBodyBullet.AddForce(tempRigidBodyBullet.transform.forward * bulletSpeed);

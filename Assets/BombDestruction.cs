@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BombDestruction : MonoBehaviour
 {
+
+    private int hitCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +22,10 @@ public class BombDestruction : MonoBehaviour
     {
         if (collision.transform.tag == "Ramp")
         {
-            Destroy(collision.gameObject);
-
-            //Destroy(effect, 1F);
-            //gameObject.SetActive(false);
+            Destroy(collision.gameObject, 0.5F);
             Debug.Log("Ramp destroyed");
         }
+
+
     }
 }

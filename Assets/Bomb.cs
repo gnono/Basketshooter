@@ -37,21 +37,7 @@ public class Bomb : MonoBehaviour
           
             Rigidbody r = c.GetComponent<Rigidbody>();
             r.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
-            //var hit = Target.GetComponent<BoxCollider>();
-            //hitCounter++;
-
-
-            //if (hit == true)
-            //{
-            //    hitCounter++;
-            //    Debug.Log("Contact was made:" + hitCounter);
-
-            //}
-            //else
-            //{
-            //    Debug.Log("No Contact was made");
-            //}
-           //c.gameObject.GetComponent<CubePhysics>();
+         
 
         }
 
@@ -62,26 +48,9 @@ public class Bomb : MonoBehaviour
         gameObject.GetComponent<AudioSource>().Play();
 
         explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-       
 
-        //Kill();
-       
-        //Invoke("Kill", 3f);
 
     }
-
-
-
-    //void Kill()
-    //{
-
-    //    Destroy(gameObject);
-
-    //    Destroy(explosion);
-
-
-
-    //}
 
   
 
