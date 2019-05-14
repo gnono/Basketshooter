@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{F8442C5D-7134-0218-AB54-8AE743F15E35}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BarrierLogic.cs">
     <Files>
       <File FileName="Assets/BulletScript.cs" Line="27" Column="26" />
       <File FileName="Assets/Player.cs" Line="187" Column="1" />
@@ -18,15 +18,14 @@
               <Node name="Standard Assets" expanded="True">
                 <Node name="Characters" expanded="True">
                   <Node name="FirstPersonCharacter" expanded="True">
-                    <Node name="Scripts" expanded="True">
-                      <Node name="FirstPersonController.cs" selected="True" />
-                    </Node>
+                    <Node name="Scripts" expanded="True" />
                   </Node>
                 </Node>
                 <Node name="Effects" expanded="True">
                   <Node name="ImageEffects" expanded="True" />
                 </Node>
               </Node>
+              <Node name="BarrierLogic.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -35,7 +34,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b71dea78-70db-4f45-9cb1-7e5b85f0db8d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e93986b7-62b8-4651-b93b-6cbd362f16bf" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

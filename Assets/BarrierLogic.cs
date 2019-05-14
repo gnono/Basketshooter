@@ -5,19 +5,17 @@ using UnityEngine.UI;
 
 public class BarrierLogic : MonoBehaviour
 {
-    public GameObject bomb;
-    public GameObject Message1;
-    public GameObject Message2;
-    public GameObject Message3;
+    public Camera Camera1;
+    public Camera Camera2;
+    public Camera Camera3;
+    public Camera Camera4;
 
-    public GameObject Barrier;
-    private float hitCounter;
-    private float hitCounter2;
-    private float hitCounter3;
+    //public GameObject Barrier;
+
 
     private void Start()
     {
-        bomb.SetActive(true);
+        Camera1.enabled = false;
 
 
     }
@@ -26,50 +24,16 @@ public class BarrierLogic : MonoBehaviour
     {
         if(other.CompareTag("Barrier1"))
         {
-            hitCounter++;
-            Debug.Log("Counter started");
-            if(hitCounter == 1)
-            {
-                Debug.Log("Contact made with the 1st Barrier: " + hitCounter);
-                bomb.SetActive(false);
-                Message1.SetActive(true);
-                StartCoroutine(wait(5F));
-                Debug.Log("Show msg for 5s");
-            }
+
+            Debug.Log("Object was hit");
 
 
+            Camera1.enabled = true;
+            StartCoroutine(wait(5F));
+            Debug.Log("Deactivate Camera in 5s");
+           
 
         }
-
-
-        if (other.CompareTag("Barrier2"))
-        {
-            hitCounter2++;
-            Debug.Log("Counter started at barrier 3: " + hitCounter2);
-            if (hitCounter2 == 1)
-            {
-                Debug.Log("Contact made with the 3rd Barrier");
-                bomb.SetActive(true);
-                Message2.SetActive(true);
-                StartCoroutine(wait(5F));
-                Debug.Log("Show msg for 5s");
-            }
-        }
-
-        if (other.CompareTag("Barrier3"))
-        {
-            hitCounter3++;
-            Debug.Log("Counter started at barrier 3: " + hitCounter3);
-            if (hitCounter3 == 2)
-            {
-                Debug.Log("Contact made with the 3rd Barrier");
-                bomb.SetActive(true);
-                Message3.SetActive(true);
-                StartCoroutine(wait(5F));
-                Debug.Log("Show msg for 5s");
-            }
-        }
-
 
 
 
@@ -81,10 +45,8 @@ public class BarrierLogic : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(delay);
-            //Debug.Log("Delay ends");
-            Message1.SetActive(false);
-            Message2.SetActive(false);
-            Message3.SetActive(false);
+            Debug.Log("Delay ends");
+            Camera1.enabled = false;
             StartCoroutine(wait(5F));
 
         }

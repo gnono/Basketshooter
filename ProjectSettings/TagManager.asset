@@ -14,8 +14,6 @@ TagManager:
   - Target
   - Ramp
   - Reward
-  - BarrierReward1
-  - BarrierReward2
   layers:
   - Default
   - TransparentFX
