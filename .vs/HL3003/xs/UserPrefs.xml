@@ -5,7 +5,7 @@
       <File FileName="Assets/Player.cs" Line="187" Column="1" />
       <File FileName="Assets/Bomb.cs" Line="54" Column="1" />
       <File FileName="Assets/Shooting.cs" Line="23" Column="8" />
-      <File FileName="Assets/BarrierLogic.cs" Line="95" Column="1" />
+      <File FileName="Assets/BarrierLogic.cs" Line="58" Column="54" />
       <File FileName="Assets/Endgame.cs" Line="50" Column="6" />
       <File FileName="Assets/BombDestruction.cs" Line="19" Column="6" />
       <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="213" Column="73" />
