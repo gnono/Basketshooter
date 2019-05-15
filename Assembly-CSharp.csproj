@@ -84,6 +84,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Shooting.cs" />
+    <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\FreeCamMouseLook.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\Rotate.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\SetSortingOrder.cs" />

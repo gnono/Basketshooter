@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public Slider HealthBar;
-    public float Health = 300;
+    public float Health = 500;
     Image[] images;
     Color32[] Colors;
 
@@ -20,7 +20,12 @@ public class PlayerHealth : MonoBehaviour
     {
 
         currentHealth = Health;
-       
+        GameObject fill = HealthBar.transform.GetChild(1).GetChild(0).gameObject;
+
+        Image fillImageLife4 = fill.GetComponent<Image>();
+        Color newColor = Color.green;
+        fillImageLife4.color = newColor;
+
     }
 
 
@@ -34,33 +39,47 @@ public class PlayerHealth : MonoBehaviour
         HealthBar.value = currentHealth;
         GameObject fill = HealthBar.transform.GetChild(1).GetChild(0).gameObject;
 
-        Image fillImage = fill.GetComponent<Image>();
-        Color newColour = new Color(1f - (HealthBar.value / HealthBar.maxValue), HealthBar.value / HealthBar.maxValue, 0f);
-        Debug.Log("Actual Health value" + HealthBar.value);
-        fillImage.color = newColour;
+        Image fillImageLife1 = fill.GetComponent<Image>();
+        Image fillImageLife2 = fill.GetComponent<Image>();
+        Image fillImageLife3 = fill.GetComponent<Image>();
+
 
         if (HealthBar.value >= 200)
         {
             Lives.text = "Lives: 3/3" ;
+            Color newColour = Color.green;
+            fillImageLife1.color = newColour;
+
         }
         else if (HealthBar.value >= 100)
         {
             Lives.text = "Lives: 2/3";
+            Color newColour = Color.yellow;
+            fillImageLife2.color = newColour;
+
+
         }
-       else 
+        else if(HealthBar.value >= 2)
        { 
-           Lives.text = "Lives: 1/3"; 
-           
-           }
-            
+           Lives.text = "Lives: 1/3";
+            Color newColour = Color.red;
+            fillImageLife3.color = newColour;
+
+
+        }
+
+        else
+        {
+            Lives.text = "Lives: 0/3";
+            Color newColour = Color.white;
+            fillImageLife3.color = newColour;
+        }
+
 
 
 
     }
-    public void GoodSlider(float value)
-    {
-        Health = value;
-    }
+   
 
 
 

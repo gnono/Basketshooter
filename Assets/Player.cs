@@ -27,10 +27,12 @@ public class Player : MonoBehaviour
     public Transform objectPosition;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        bombPrefab.SetActive(true);
     }
 
     // Change Material
@@ -132,7 +134,18 @@ public class Player : MonoBehaviour
 
                 GameObject bomb = Instantiate(bombPrefab, hand.position, Quaternion.identity);
                 bomb.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
+                hitCounter++;
+                Debug.Log("Number of balls thrown: " + hitCounter);
 
+                if (hitCounter >= 3)
+                {
+
+                    bombPrefab.SetActive(false);
+                    Destroy(bomb);
+                    Debug.Log("Bombs deactivated: " + hitCounter);
+                }
+
+                
                 DestroyTarget();
                
 
@@ -176,7 +189,7 @@ public class Player : MonoBehaviour
 
         void DestroyTarget()
         {
-            hitCounter++;
+
             GameObject[] targets = GameObject.FindGameObjectsWithTag("Ramp");
 
         }
