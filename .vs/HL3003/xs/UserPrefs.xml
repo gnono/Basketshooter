@@ -1,22 +1,25 @@
 ﻿<Properties StartupConfiguration="{F8442C5D-7134-0218-AB54-8AE743F15E35}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Timer.cs">
     <Files>
-      <File FileName="Assets/BulletScript.cs" Line="25" Column="47" />
-      <File FileName="Assets/Player.cs" Line="187" Column="1" />
-      <File FileName="Assets/Bomb.cs" Line="54" Column="1" />
+      <File FileName="Assets/BulletScript.cs" Line="22" Column="55" />
+      <File FileName="Assets/Player.cs" Line="156" Column="42" />
+      <File FileName="Assets/Bomb.cs" Line="50" Column="97" />
       <File FileName="Assets/Shooting.cs" Line="23" Column="8" />
       <File FileName="Assets/BarrierLogic.cs" Line="58" Column="54" />
-      <File FileName="Assets/Endgame.cs" Line="50" Column="6" />
+      <File FileName="Assets/Endgame.cs" Line="49" Column="7" />
       <File FileName="Assets/BombDestruction.cs" Line="19" Column="6" />
       <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="213" Column="73" />
-      <File FileName="Assets/PlayerHealth.cs" Line="52" Column="39" />
-      <File FileName="Assets/Timer.cs" Line="30" Column="64" />
+      <File FileName="Assets/PlayerHealth.cs" Line="78" Column="1" />
+      <File FileName="Assets/Timer.cs" Line="54" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HL3003" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="SampleScenes" expanded="True">
+                <Node name="Scripts" expanded="True" />
+              </Node>
               <Node name="Standard Assets" expanded="True">
                 <Node name="Characters" expanded="True">
                   <Node name="FirstPersonCharacter" expanded="True">
@@ -32,16 +35,11 @@
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="HL3003" expanded="True" selected="True" />
-        </State>
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6849c392-ad30-4ac9-b956-d75a70f8636e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2eabc198-7ee3-4e19-b9a1-1cdc82074497" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

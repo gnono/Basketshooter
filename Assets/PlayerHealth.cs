@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 
 {
-
+    [SerializeField] Text GameOver;
     public Slider HealthBar;
     public float Health = 500;
     Image[] images;
@@ -15,16 +15,24 @@ public class PlayerHealth : MonoBehaviour
 
     private float currentHealth;
     [SerializeField] Text Lives;
+    private GameObject Bloodsplatter;
+    public GameObject BloodsplatterPrefab;
+
     void Start()
 
     {
 
         currentHealth = Health;
         GameObject fill = HealthBar.transform.GetChild(1).GetChild(0).gameObject;
+        if (GameOver != null)
+        {
+            GameOver.gameObject.SetActive(false);
+        }
 
         Image fillImageLife4 = fill.GetComponent<Image>();
         Color newColor = Color.green;
         fillImageLife4.color = newColor;
+        BloodsplatterPrefab.SetActive(false);
 
     }
 
@@ -73,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
             Lives.text = "Lives: 0/3";
             Color newColour = Color.white;
             fillImageLife3.color = newColour;
+            GameOver.gameObject.SetActive(false);
         }
 
 
@@ -87,7 +96,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.transform.tag == "Reward")
         {
-            TakeDamage(2);
+            TakeDamage(5);
+            BloodsplatterPrefab.SetActive(true);
+            Bloodsplatter = GameObject.Instantiate(BloodsplatterPrefab, collision.contacts[0].point, Quaternion.identity);
+            Destroy(Bloodsplatter, 2.5f);
+
         }
     }
 }
