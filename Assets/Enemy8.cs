@@ -77,9 +77,8 @@ public class Enemy8 : MonoBehaviour
         if (collision.transform.tag == "Bullet")
         {
             Debug.Log("touchBull");
-            anim.SetBool("isKnockback", true);
-           
-            deplacement = true;
+            anim.SetBool("isDeath", true);
+            deplacement = false;
             Magnitude(deplacement);
 
             anim.SetBool("isIdle", false);
