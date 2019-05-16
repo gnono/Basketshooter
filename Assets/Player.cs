@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -27,29 +26,31 @@ public class Player : MonoBehaviour
     private GameObject ramp;
     public Transform objectPosition;
 
+    public GameObject enemy;
+    public Transform enemyPosition;
+    private float repeatRate = 5.0f;
 
-    [SerializeField] Text Basketthrows;
+
 
     // Start is called before the first frame update
     void Start()
     {
-       // bombPrefab.SetActive(true);
-        Basketthrows.gameObject.SetActive(true);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-      //  if (other.gameObject.tag == "wall1")
-       // {
-       //     InvokeRepeating("EnemySpawner", 0.5f, repeatRate);
-         //   Destroy(gameObject, 11);
-        //    gameObject.GetComponent<BoxCollider>().enabled = false;
-      //  }
+        if (other.gameObject.tag == "wall1")
+        {
+            InvokeRepeating("EnemySpawner", 0.5f, repeatRate);
+            Destroy(gameObject, 11);
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
-   // void EnemySpawner()
-   // {
-       // Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
-   // }
+    void EnemySpawner()
+    {
+        Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
+    }
 
     // Change Material
     void UpdateMaterial(bool transparent)
@@ -151,35 +152,8 @@ public class Player : MonoBehaviour
 
                 GameObject bomb = Instantiate(ballPrefab, hand.position, Quaternion.identity);
                 bomb.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
-                hitCounter++;
-                Debug.Log("Number of balls thrown: " + hitCounter);
 
-                if (hitCounter == 1)
-                {
-
-                    Basketthrows.text = "2/3";
-                }
-                else if (hitCounter == 2)
-                {
-                    Basketthrows.text = "1/3";
-                }
-
-                else if(hitCounter == 3)
-                {
-                    Basketthrows.text = "0/3";
-
-                }
-                else if (hitCounter >= 4)
-                {
-                    Basketthrows.text = "0/3";
-                  //  bombPrefab.SetActive(false);
-                    Basketthrows.gameObject.SetActive(false);
-                    Destroy(bomb);
-                    Debug.Log("Bombs deactivated: " + hitCounter);
-                }
-
-
-                DestroyTarget();
+               // DestroyTarget();
                
 
             }
@@ -219,7 +193,7 @@ public class Player : MonoBehaviour
 
         void DestroyTarget()
         {
-
+            hitCounter++;
             GameObject[] targets = GameObject.FindGameObjectsWithTag("Ramp");
 
         }

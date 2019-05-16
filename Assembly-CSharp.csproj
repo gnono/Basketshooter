@@ -71,7 +71,6 @@
     <Compile Include="Assets\EnemyTrigger.cs" />
     <Compile Include="Assets\HolyShift\Scripts\CheckForStandardAssets.cs" />
     <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\PlayerHealth.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -87,7 +86,6 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Shooting.cs" />
-    <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\FreeCamMouseLook.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\Rotate.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\SetSortingOrder.cs" />
