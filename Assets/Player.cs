@@ -26,9 +26,9 @@ public class Player : MonoBehaviour
     private GameObject ramp;
     public Transform objectPosition;
 
-    public GameObject enemy;
-    public Transform enemyPosition;
-    private float repeatRate = 5.0f;
+   // public GameObject enemy;
+   // public Transform enemyPosition;
+   // private float repeatRate = 5.0f;
 
 
 
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+  /**  private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "wall1")
         {
@@ -47,10 +47,11 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
-    void EnemySpawner()
-    {
-        Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
-    }
+    */
+   // void EnemySpawner()
+    //{
+    //    Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
+   // }
 
     // Change Material
     void UpdateMaterial(bool transparent)
