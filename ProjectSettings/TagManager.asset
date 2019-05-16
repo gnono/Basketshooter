@@ -15,9 +15,11 @@ TagManager:
   - Ramp
   - Reward
   - BarrierReward1
-  - Blood
-  - BossKill
-  - Well
+  - Fire
+  - Enemy
+  - Bullet
+  - FPS
+  - wall1
   layers:
   - Default
   - TransparentFX

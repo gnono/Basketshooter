@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private float throwforceRamp = 2000;
     public LayerMask interactionLayer;
     private Rigidbody objInHand;
-    public GameObject bombPrefab;
+    public GameObject ballPrefab;
     public GameObject bullet;
     private float bulletSpeed = 3000;
 
@@ -37,6 +37,20 @@ public class Player : MonoBehaviour
         Basketthrows.gameObject.SetActive(true);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "wall1")
+        {
+            InvokeRepeating("EnemySpawner", 0.5f, repeatRate);
+            Destroy(gameObject, 11);
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+    void EnemySpawner()
+    {
+        Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
+    }
+
     // Change Material
     void UpdateMaterial(bool transparent)
     {
@@ -50,6 +64,7 @@ public class Player : MonoBehaviour
             ramp.GetComponent<Renderer>().material = opaqueMat;
         }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -80,14 +95,14 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            if (Time.timeScale == 1)
+            if (Time.timeScale ==1F)
             {
 
                 Time.timeScale = 0.25F;
 
             }
 
-            else { Time.timeScale = 1; }
+            else { Time.timeScale = 1F; }
         }
 
 
@@ -134,7 +149,7 @@ public class Player : MonoBehaviour
             else
             {
 
-                GameObject bomb = Instantiate(bombPrefab, hand.position, Quaternion.identity);
+                GameObject bomb = Instantiate(ballPrefab, hand.position, Quaternion.identity);
                 bomb.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
                 hitCounter++;
                 Debug.Log("Number of balls thrown: " + hitCounter);
@@ -196,9 +211,6 @@ public class Player : MonoBehaviour
                 bulletPrefab.transform.parent = null;
                 bulletPrefab.GetComponent<Rigidbody>().AddForce(cam.transform.forward * bulletSpeed);
                 Destroy(bulletPrefab, 0.5f);
-
-
-
 
             }
 
