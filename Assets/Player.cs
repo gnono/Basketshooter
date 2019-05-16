@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -27,10 +28,13 @@ public class Player : MonoBehaviour
     public Transform objectPosition;
 
 
+    [SerializeField] Text Basketthrows;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        bombPrefab.SetActive(true);
+        Basketthrows.gameObject.SetActive(true);
     }
 
     // Change Material
@@ -132,6 +136,33 @@ public class Player : MonoBehaviour
 
                 GameObject bomb = Instantiate(bombPrefab, hand.position, Quaternion.identity);
                 bomb.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
+                hitCounter++;
+                Debug.Log("Number of balls thrown: " + hitCounter);
+
+                if (hitCounter == 1)
+                {
+
+                    Basketthrows.text = "2/3";
+                }
+                else if (hitCounter == 2)
+                {
+                    Basketthrows.text = "1/3";
+                }
+
+                else if(hitCounter == 3)
+                {
+                    Basketthrows.text = "0/3";
+
+                }
+                else if (hitCounter >= 4)
+                {
+                    Basketthrows.text = "0/3";
+                    bombPrefab.SetActive(false);
+                    Basketthrows.gameObject.SetActive(false);
+                    Destroy(bomb);
+                    Debug.Log("Bombs deactivated: " + hitCounter);
+                }
+
 
                 DestroyTarget();
                
@@ -176,7 +207,7 @@ public class Player : MonoBehaviour
 
         void DestroyTarget()
         {
-            hitCounter++;
+
             GameObject[] targets = GameObject.FindGameObjectsWithTag("Ramp");
 
         }
