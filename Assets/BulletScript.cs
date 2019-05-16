@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour {
     AudioSource bulletAudio;
     public GameObject explosionEffectPrefab;
     private float hitCounter;
+    
     // Use this for initialization
     void Start () {
 
@@ -38,6 +39,8 @@ public class BulletScript : MonoBehaviour {
 
 
         }
+
+      
 
 
     }
