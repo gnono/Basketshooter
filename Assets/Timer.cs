@@ -9,22 +9,25 @@ using System.Threading;
 public class Timer : MonoBehaviour
 {
     [SerializeField] Text GameOver;
-    private float currentTime = 0f;
-    private float startingTime = 200f;
-    private float PlayTime;
+    private float currentTime;
+    private float startingTime = 160f;
+
 
     [SerializeField] Text countdownText;
     [SerializeField] Text YouWonMessage;
     private bool finished = false;
     [SerializeField] Text NewBestTime;
 
+    public GameObject Bullet;
 
     void Start()
     {
-        StartCoroutine("LoseTime");
-        Time.timeScale = 1;
+        currentTime = Time.time;
         GameOver.gameObject.SetActive(false);
-        NewBestTime.text = "Record: " + PlayerPrefs.GetFloat("NewBestTime", 0).ToString("F1") + "s";
+        Bullet.SetActive(true);
+
+
+        //NewBestTime.text = "Record: " + PlayerPrefs.GetFloat("NewBestTime", 0).ToString("F1") + "s";
         if (YouWonMessage != null)
         {
             YouWonMessage.gameObject.SetActive(false);
@@ -34,7 +37,7 @@ public class Timer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "BossKill")
+        if (collision.transform.tag == "Reward")
         {
             Debug.Log("Boss killed");
             YouWonMessage.gameObject.SetActive(true);
@@ -47,13 +50,13 @@ public class Timer : MonoBehaviour
     void Update()
     {
 
-        startingTime -= 1 * Time.deltaTime;
-        PlayTime = Time.time;
+         float PlayTime = startingTime - Time.time;
+
         if (countdownText != null && !finished)
         {
 
-            //countdownText.text = (startingTime).ToString("F1") + "s";
             countdownText.text = (PlayTime).ToString("F1") + "s";
+
 
         }
 
@@ -62,45 +65,28 @@ public class Timer : MonoBehaviour
 
         }
 
-        else
-        {
+        //else
+        //{
 
-            if (PlayTime < PlayerPrefs.GetFloat("NewBestTime", float.MaxValue))
-            {
+        //    if (PlayTime > PlayerPrefs.GetFloat("NewBestTime", float.MaxValue))
+        //    {
 
-                PlayerPrefs.SetFloat("NewBestTime", PlayTime);
-                NewBestTime.text = "Record: " + PlayTime.ToString("F1") + "s";
+        //        PlayerPrefs.SetFloat("NewBestTime", currentTime);
+        //        NewBestTime.text = "Record: " + currentTime.ToString("F1") + "s";
 
-                Debug.Log("Your time: " + PlayTime);
-                PlayerPrefs.Save();
-                Debug.Log("Eureka!" + NewBestTime);
+        //        Debug.Log("Your time: " + currentTime);
+        //        PlayerPrefs.Save();
+        //        Debug.Log("Eureka!" + NewBestTime);
 
-            }
+        //    }
 
-        }
+        //}
 
-
-        if ((GameOver != null) && (PlayTime >= 300))
-        {
-            PlayTime = 300;
-
-            GameOver.gameObject.SetActive(true);
-            countdownText.text = PlayTime.ToString("00.0") + "s";
-
-        }
 
     }
 
 
-    IEnumerator LoseTime()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            startingTime--;
-        }
-    }
-
+        
 
 
 

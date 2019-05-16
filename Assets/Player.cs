@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         bombPrefab.SetActive(true);
+        Basketthrows.gameObject.SetActive(true);
     }
 
     // Change Material
@@ -157,6 +158,7 @@ public class Player : MonoBehaviour
                 {
                     Basketthrows.text = "0/3";
                     bombPrefab.SetActive(false);
+                    Basketthrows.gameObject.SetActive(false);
                     Destroy(bomb);
                     Debug.Log("Bombs deactivated: " + hitCounter);
                 }

@@ -7,10 +7,9 @@
       <File FileName="Assets/Shooting.cs" Line="23" Column="8" />
       <File FileName="Assets/BarrierLogic.cs" Line="58" Column="54" />
       <File FileName="Assets/Endgame.cs" Line="49" Column="7" />
-      <File FileName="Assets/BombDestruction.cs" Line="19" Column="6" />
       <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="213" Column="73" />
       <File FileName="Assets/PlayerHealth.cs" Line="78" Column="1" />
-      <File FileName="Assets/Timer.cs" Line="54" Column="1" />
+      <File FileName="Assets/Timer.cs" Line="26" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -39,7 +38,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2eabc198-7ee3-4e19-b9a1-1cdc82074497" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="437a66a3-6c9d-4156-a540-577acb6ccd4a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
