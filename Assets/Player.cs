@@ -33,23 +33,23 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bombPrefab.SetActive(true);
+       // bombPrefab.SetActive(true);
         Basketthrows.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "wall1")
-        {
-            InvokeRepeating("EnemySpawner", 0.5f, repeatRate);
-            Destroy(gameObject, 11);
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-        }
+      //  if (other.gameObject.tag == "wall1")
+       // {
+       //     InvokeRepeating("EnemySpawner", 0.5f, repeatRate);
+         //   Destroy(gameObject, 11);
+        //    gameObject.GetComponent<BoxCollider>().enabled = false;
+      //  }
     }
-    void EnemySpawner()
-    {
-        Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
-    }
+   // void EnemySpawner()
+   // {
+       // Instantiate(enemy, enemyPosition.position, enemyPosition.rotation);
+   // }
 
     // Change Material
     void UpdateMaterial(bool transparent)
@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
                 else if (hitCounter >= 4)
                 {
                     Basketthrows.text = "0/3";
-                    bombPrefab.SetActive(false);
+                  //  bombPrefab.SetActive(false);
                     Basketthrows.gameObject.SetActive(false);
                     Destroy(bomb);
                     Debug.Log("Bombs deactivated: " + hitCounter);
