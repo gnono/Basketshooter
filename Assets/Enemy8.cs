@@ -79,7 +79,7 @@ public class Enemy8 : MonoBehaviour
             Debug.Log("touchBull");
             anim.SetBool("isKnockback", true);
            
-            deplacement = false;
+            deplacement = true;
             Magnitude(deplacement);
 
             anim.SetBool("isIdle", false);
