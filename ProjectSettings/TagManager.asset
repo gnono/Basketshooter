@@ -20,6 +20,8 @@ TagManager:
   - Bullet
   - FPS
   - wall1
+  - BossKill
+  - plane
   layers:
   - Default
   - TransparentFX

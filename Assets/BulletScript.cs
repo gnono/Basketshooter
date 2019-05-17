@@ -40,7 +40,16 @@ public class BulletScript : MonoBehaviour {
 
         }
 
-      
+        if (collision.transform.tag == "Enemy")
+        {
+           
+            Destroy(collision.gameObject , 4);
+            Debug.Log("tot");
+
+
+        }
+
+
 
 
     }

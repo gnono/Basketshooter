@@ -8,7 +8,7 @@ public class EnemyBoss : MonoBehaviour
     public Transform player;
     static Animator anim;
     [SerializeField] Text  won;
-    public GameObject bullet;
+   public GameObject bullet;
 
 
     private bool deplacement;
