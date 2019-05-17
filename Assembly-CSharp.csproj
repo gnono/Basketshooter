@@ -60,23 +60,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Ball.cs" />
     <Compile Include="Assets\BarrierLogic.cs" />
     <Compile Include="Assets\Bomb.cs" />
     <Compile Include="Assets\BombDestruction.cs" />
     <Compile Include="Assets\BulletScript.cs" />
     <Compile Include="Assets\CubePhysics.cs" />
     <Compile Include="Assets\Endgame.cs" />
+    <Compile Include="Assets\Enemy10.cs" />
+    <Compile Include="Assets\Enemy11.cs" />
+    <Compile Include="Assets\Enemy12.cs" />
+    <Compile Include="Assets\enemy13.cs" />
+    <Compile Include="Assets\enemy14.cs" />
+    <Compile Include="Assets\enemy15.cs" />
     <Compile Include="Assets\Enemy2.cs" />
     <Compile Include="Assets\Enemy4.cs" />
     <Compile Include="Assets\Enemy5.cs" />
     <Compile Include="Assets\Enemy6.cs" />
     <Compile Include="Assets\Enemy7.cs" />
     <Compile Include="Assets\Enemy8.cs" />
+    <Compile Include="Assets\enemy9.cs" />
+    <Compile Include="Assets\EnemyBoss.cs" />
     <Compile Include="Assets\Enemys.cs" />
     <Compile Include="Assets\EnemySpawn.cs" />
     <Compile Include="Assets\EnemyTrigger.cs" />
     <Compile Include="Assets\HolyShift\Scripts\CheckForStandardAssets.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\PlayerHealth.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -92,6 +102,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Shooting.cs" />
+    <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\FreeCamMouseLook.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\Rotate.cs" />
     <Compile Include="Assets\ToonEnvironment\Scripts\SetSortingOrder.cs" />

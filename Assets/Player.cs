@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -26,15 +27,22 @@ public class Player : MonoBehaviour
     private GameObject ramp;
     public Transform objectPosition;
 
-   // public GameObject enemy;
-   // public Transform enemyPosition;
-   // private float repeatRate = 5.0f;
+    [SerializeField] Text Basketthrows;
+
+
+
+    // public GameObject enemy;
+    // public Transform enemyPosition;
+    // private float repeatRate = 5.0f;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+        ballPrefab.SetActive(true);
+        Basketthrows.gameObject.SetActive(true);
 
     }
 
@@ -153,9 +161,33 @@ public class Player : MonoBehaviour
 
                 GameObject bomb = Instantiate(ballPrefab, hand.position, Quaternion.identity);
                 bomb.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwforce);
+                hitCounter++;
+                Destroy(bomb, 10);
 
-               // DestroyTarget();
-               
+                if (hitCounter == 1)
+                {
+
+                    Basketthrows.text = "2/3";
+                }
+                else if (hitCounter == 2)
+                {
+                    Basketthrows.text = "1/3";
+                }
+
+                else if (hitCounter == 3)
+                {
+                    Basketthrows.text = "0/3";
+
+                }
+                else if (hitCounter >= 4)
+                {
+                    Basketthrows.text = "0/3";
+                    ballPrefab.SetActive(false);
+                    Basketthrows.gameObject.SetActive(false);
+                    Destroy(bomb);
+                    Debug.Log("Bombs deactivated: " + hitCounter);
+                }
+
 
             }
 

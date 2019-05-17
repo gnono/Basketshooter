@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5130217768680325129}
   - component: {fileID: 5130217768680325128}
   - component: {fileID: 5130217768680325131}
+  - component: {fileID: 8048886455400956420}
   m_Layer: 0
   m_Name: Bouncyball
   m_TagString: Untagged
@@ -87,7 +88,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5130217768680325130}
   m_Material: {fileID: 13400000, guid: 73863dd2f7bf344c08210dd5cb3cb951, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -108,3 +109,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8048886455400956420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130217768680325130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2906073f95a264b9982596716e608a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 0}

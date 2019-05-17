@@ -1,0 +1,112 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EnemyBoss : MonoBehaviour
+{
+    public Transform player;
+    static Animator anim;
+    [SerializeField] Text  won;
+    public GameObject bullet;
+
+
+    private bool deplacement;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        deplacement = true;
+        won.gameObject.SetActive(false);
+        bullet.SetActive(true);
+
+    }
+
+
+
+    void Magnitude(bool deplacement)
+    {
+        if (deplacement)
+        {
+            Vector3 direction = player.position - this.transform.position;
+
+            direction.y = 0;
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+
+            anim.SetBool("isIdle", false);
+            if (direction.magnitude > 6)
+            {
+                this.transform.Translate(0, 0, 0.7f);
+                anim.SetBool("isRunning", true);
+                anim.SetBool("isAttacking", false);
+            }
+            else
+            {
+                anim.SetBool("isAttacking", true);
+                anim.SetBool("isRunning", false);
+            }
+
+
+
+        }
+
+        if (!deplacement)
+        {
+            this.transform.Translate(0, 0, 0f);
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+
+
+        if (Vector3.Distance(player.position, this.transform.position) < 40)
+        {
+            Magnitude(deplacement);
+        }
+        else
+        {
+            anim.SetBool("isIdle", true);
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isAttacking", false);
+        }
+
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+
+        if (collision.transform.tag == "Bullet")
+        {
+            Debug.Log("touchBull");
+            anim.SetBool("isDeath", true);
+            deplacement = false;
+            Magnitude(deplacement);
+
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isAttacking", false);
+
+        }
+
+        if (collision.transform.tag == "Bullet")
+        {
+            Debug.Log("touchFPS");
+            won.gameObject.SetActive(true);
+            bullet.SetActive(false);
+
+
+
+
+
+        }
+
+
+
+    }
+
+
+}

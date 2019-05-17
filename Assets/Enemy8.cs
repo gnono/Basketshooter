@@ -6,6 +6,8 @@ public class Enemy8 : MonoBehaviour
 {
     public Transform player;
     static Animator anim;
+    
+    
 
 
     private bool deplacement;
@@ -90,8 +92,8 @@ public class Enemy8 : MonoBehaviour
         if (collision.transform.tag == "FPS")
         {
             Debug.Log("touchFPS");
-
-
+           // PlayerHealth.TakeDamage(5);
+           // Debug.Log("Attack");
 
 
         }
