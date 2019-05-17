@@ -78,6 +78,7 @@ public class enemy14 : MonoBehaviour
         {
             Debug.Log("touchBull");
             anim.SetBool("isDeath", true);
+            Destroy(this, 4);
             deplacement = false;
             Magnitude(deplacement);
 

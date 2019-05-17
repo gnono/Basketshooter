@@ -12,6 +12,10 @@ public class Timer : MonoBehaviour
     private float currentTime;
     private float startingTime = 160f;
 
+   // public GameObject level1;
+   // public GameObject level2;
+   public GameObject level3;
+
 
     [SerializeField] Text countdownText;
     [SerializeField] Text YouWonMessage;
@@ -26,6 +30,9 @@ public class Timer : MonoBehaviour
         GameOver.gameObject.SetActive(false);
         Bullet.SetActive(true);
 
+       // level1.SetActive(true);
+       // level2.SetActive(false);
+       level3.SetActive(false);
 
         //NewBestTime.text = "Record: " + PlayerPrefs.GetFloat("NewBestTime", 0).ToString("F1") + "s";
         if (YouWonMessage != null)
@@ -37,19 +44,31 @@ public class Timer : MonoBehaviour
 
     
 
-    private void OnTriggerEnter(Collider other)
+  /**  private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BossKill"))
+        if (other.CompareTag("Bullet"))
         {
             Debug.Log("Boss killed");
             YouWonMessage.gameObject.SetActive(true);
             finished = true;
         }
     }
+    */
+    void OnCollisionEnter(Collision collision)
+    {
 
 
+        if (collision.transform.tag == "Bullet")
+        {
+            Debug.Log("Boss killed");
+            YouWonMessage.gameObject.SetActive(true);
+            finished = true;
 
-    void Update()
+        }
+    }
+
+
+        void Update()
     {
 
          float PlayTime = startingTime - Time.time;
@@ -67,22 +86,18 @@ public class Timer : MonoBehaviour
 
         }
 
-        //else
-        //{
 
-        //    if (PlayTime > PlayerPrefs.GetFloat("NewBestTime", float.MaxValue))
-        //    {
+        if(currentTime == 40)
+        {
+           // level2.SetActive(true);
+        }
 
-        //        PlayerPrefs.SetFloat("NewBestTime", currentTime);
-        //        NewBestTime.text = "Record: " + currentTime.ToString("F1") + "s";
-
-        //        Debug.Log("Your time: " + currentTime);
-        //        PlayerPrefs.Save();
-        //        Debug.Log("Eureka!" + NewBestTime);
-
-        //    }
-
-        //}
+        else if(currentTime == 90)
+        {
+        level3.SetActive(true);
+        
+    }
+       
 
 
     }
@@ -94,15 +109,5 @@ public class Timer : MonoBehaviour
 
 
 
-
-/**
-private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Well"))
-        {
-
-        }
-    }
-    */
 
 }

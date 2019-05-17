@@ -21,6 +21,9 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth ph;
     public GameObject BloodsplatterPrefab;
 
+    public GameObject Level2;
+    public GameObject Level3;
+
     private void Awake()
     {
         ph = this;
@@ -28,6 +31,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
 
     {
+
+        Level2.SetActive(false);
+        Level3.SetActive(false);
 
         currentHealth = Health;
         GameObject fill = HealthBar.transform.GetChild(1).GetChild(0).gameObject;
@@ -110,6 +116,15 @@ public class PlayerHealth : MonoBehaviour
             Bloodsplatter = GameObject.Instantiate(BloodsplatterPrefab, transform.position, Quaternion.identity);
             Destroy(Bloodsplatter, 2.5f);
 
+        }
+
+        if (other.CompareTag("plane"))
+        {
+
+            Level2.SetActive(true);
+            Level3.SetActive(true);
+            Debug.Log("plane");
+           
         }
     }
 
